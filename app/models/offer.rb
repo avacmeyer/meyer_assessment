@@ -3,11 +3,11 @@ class Offer < ApplicationRecord
   has_many :users, through: :user_offers
  
   validates_length_of :description, maximum: 255
-  validates_presence_of :description, :start_date, :end_date 
+  validates_presence_of :description, :upper_bound, :lower_bound 
   
-  def self.target_offers
-    Offer.column_contains(:gender, user.gender)
-         .where(upper_bound: user.birthdate.., 
-                lower_bound: ..user.birthdate )
+  def self.target_offers(user)
+    binding.irb
+    Offer.where("target_genders like ?", user.gender)
+         .where(upper_bound: user.birthdate.., lower_bound: ..user.birthdate )
   end
 end
