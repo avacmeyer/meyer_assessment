@@ -4,9 +4,13 @@ class User < ApplicationRecord
   has_many :email_verification_tokens, dependent: :destroy
   has_many :password_reset_tokens, dependent: :destroy
   has_many :sessions, dependent: :destroy
+  has_many :user_offers
+  has_many :offers, through: :user_offers
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 12 }
+  validates :birthdate, presence: true
+  validates :gender, presence: true
 
   before_validation if: -> { email.present? } do
     self.email = email.downcase.strip
