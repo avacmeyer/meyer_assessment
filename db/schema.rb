@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_091732) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_073618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,13 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_091732) do
 
   create_table "offers", force: :cascade do |t|
     t.string "description", limit: 255, null: false
-    t.datetime "start_date", null: false
-    t.datetime "end_date", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "target_genders"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.date "upper_bound", null: false
     t.date "lower_bound", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "password_reset_tokens", force: :cascade do |t|
