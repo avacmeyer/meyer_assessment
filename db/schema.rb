@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_073618) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_091732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,9 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_073618) do
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
     t.string "target_genders"
-    t.string "target_age_groups"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "upper_bound", null: false
+    t.date "lower_bound", null: false
   end
 
   create_table "password_reset_tokens", force: :cascade do |t|
