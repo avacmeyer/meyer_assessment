@@ -1,6 +1,5 @@
 import React from 'react'
 import Offers from "components/offers";
-import { useEffect, useState } from 'react';
 
 function Hello(props) {
   return(
